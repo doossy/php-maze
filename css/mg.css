@@ -1,0 +1,164 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-size: 12px;
+	font-family: Verdana;
+	line-height: 20px;
+	background: #f5f5f5;
+}
+.mg {
+	font-size: 12px;
+	/*border: solid 1px #666;*/
+	position: relative;
+	font-size: 11px;
+}
+.mg .grid {
+	/*background: #f5f5f5;
+	border: solid 1px #666;*/
+	position: absolute;
+	overflow: hidden;
+	width:35px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+}
+.mg .mg_finish {
+	background: #f5f5f5 url(img/flag_red.gif) no-repeat center center;
+}
+.mg .me {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*_margin-top: -38px;
+	_margin-left: -38px;*/
+	z-index: 10;
+}
+.mg .me .inform {
+	position: absolute;
+	/*top: -25px;*/
+	bottom: 20px;
+	padding-bottom: 4px;
+	left: -5px;
+	background: transparent url(img/sInform_arrow.gif) no-repeat 11px 100%;
+	display: none;
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+	width: 160px;
+	font-size: 12px;
+}
+.mg .me .inform p {
+	background: #000;
+	color: #fff;
+	padding: 3px 5px;
+	margin: 0;
+	float: left;
+}
+.mg .me img {
+	border: 0;
+	width: 80%;
+	height: 80%;
+	margin: 10%;
+}
+#mg_set {
+	margin: 0 10px 20px 10px;
+}
+#mg_set p {
+	margin: 0 0 20px 0;
+	padding: 0 0 0 2em;
+}
+.info {
+	padding: 10px;
+	font-size: 14px;
+}
+.info p {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	color: gray;
+}
+#foot {
+	background: #f5f5f5;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+p {
+	padding: 0;
+	margin: 0;
+}
+#project_info {
+	border: solid 1px #999;
+	padding: 9px;
+	background: #f5f5f5;
+	float: right;
+	width: 300px;
+}
+#project_info p {
+	padding-left: 1em;
+}
+#wrapper {
+	margin: 0;
+	padding: 10px 20px 40px 20px;
+	background: #fff;
+}
+.cell_0{
+	background:url(../images/instance/cells.gif) repeat scroll 0 35px transparent;
+}
+.cell_1{
+	background:url(../images/instance/cells.gif) repeat scroll 70px 70px transparent;
+}
+.cell_2{
+	background:url(../images/instance/cells.gif) repeat scroll 35px 70px transparent;
+}
+.cell_3{
+	background:url(../images/instance/cells.gif) repeat scroll 35px 105px transparent;
+}
+.cell_4{
+	background:url(../images/instance/cells.gif) repeat scroll 105px 70px transparent;
+}
+.cell_5{
+	background:url(../images/instance/cells.gif) repeat scroll 140px 105px transparent;
+}
+.cell_6{
+	background:url(../images/instance/cells.gif) repeat scroll 0 70px transparent;
+}
+.cell_7{
+	background:url(../images/instance/cells.gif) repeat scroll 105px 0 transparent;
+}
+.cell_8{
+	background:url(../images/instance/cells.gif) repeat scroll 140px 70px transparent;
+}
+.cell_9{
+	background:url(../images/instance/cells.gif) repeat scroll 105px 105px transparent;
+}
+.cell_10{
+	background:url(../images/instance/cells.gif) repeat scroll 0 105px transparent;
+}
+.cell_11{
+	background:url(../images/instance/cells.gif) repeat scroll 70px 0 transparent;
+}
+.cell_12{
+	background:url(../images/instance/cells.gif) repeat scroll 70px 105px transparent;
+}
+.cell_13{
+	background:url(../images/instance/cells.gif) repeat scroll 35px 0 transparent;
+}
+.cell_14{
+	background:url(../images/instance/cells.gif) repeat scroll 140px 0 transparent;
+}
+.cell_15{
+	background:url(../images/instance/cells.gif) repeat scroll 0 0 transparent;
+}
+.cell_enable_1{
+		background:url(../images/instance/cells.gif) repeat scroll 35px 35px transparent;
+}
+.cell_enable_2{
+		background:url(../images/instance/cells.gif) repeat scroll 70px 35px transparent;
+}
+.cell_enable_4{
+		background:url(../images/instance/cells.gif) repeat scroll 140px 35px transparent;
+}
+.cell_enable_8{
+		background:url(../images/instance/cells.gif) repeat scroll 105px 35px transparent;
+}
