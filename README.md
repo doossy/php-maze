@@ -7,7 +7,7 @@ php版本的迷宫生成算法及A*寻路算法
 # 文件说明
 * Maze.php 生成迷宫主类
 * AStart.php A＊寻路算法
-* 其他文件是demon.php支持的
+* 其他文件是演示支持的
 
 # 查看演示
 ~~~
@@ -15,7 +15,7 @@ php版本的迷宫生成算法及A*寻路算法
 git clone https://github.com/recoye/php-maze.git
 
 #在浏览器中查看:
-http://*/php-maze/demo.php
+http://*/php-maze/index.php
 ~~~
 
 # 其他说明
