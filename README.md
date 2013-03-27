@@ -28,4 +28,4 @@ http://localhost/php-maze/index.php
 * [A* Pathfinding for Beginners](http://www.gamedev.net/page/resources/_/technical/artificial-intelligence/a-pathfinding-for-beginners-r2003)
 
 ## 迷宫生成算法
-* [[oldj's blog] JavaScript写的网页迷宫游戏](http://oldj.net/article/javascript-maze/)
+* [[oldj's blog] JavaScript写的网页迷宫游戏]<http://oldj.net/article/javascript-maze/>
