@@ -49,7 +49,7 @@ function div($x, $y, $v){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="zh-CN" />
-<title>迷宫 - 三思</title>
+<title>php版本的迷宫生成算法及A*寻路算法</title>
 <link href="css/mg.css" rel="stylesheet" type="text/css">
 </head>
 <body>
