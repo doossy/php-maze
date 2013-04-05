@@ -49,15 +49,20 @@ class AStar{
 
         while ( 0 < count($this->_open) ) {
             $minf = false;
+            // 查找最小F
             foreach( $this->_open as $key => $maxNode ) {
                 if ( $minf === false || $minf > $maxNode['f'] ) {
                     $minIndex = $key;
                 }
             }
+
+            // 取出最新F的点
             $nowNode = $this->_open[$minIndex];
             unset($this->_open[$minIndex]);
+            // 已经找着
             if ( $nowNode['i'] == $this->_end ) {
                 $tp = array();
+                // 从链表中取出所有点放到查询结构中
                 while( $nowNode['p'] !== null ) {
                     array_unshift($tp, $nowNode['p']);
                     $nowNode = $this->_closed[$nowNode['p']];
@@ -99,7 +104,8 @@ class AStar{
     private function _checkPoint($pNode, $next) {
         if ( $this->_closed[$next] ) {
             $_g = $this->_closed[$pNode]['g'] + $this->_getG($next);
-            if ( $_g < $check['g'] ) {
+            // 如果路径有更好的，更新
+            if ( $_g < $this->_closed[$next]['g'] ) {
                 $this->_closed[$next]['g'] = $_g;
                 $this->_closed[$next]['f'] = $this->_closed[$next]['g'] + $this->_closed[$next]['h'];
                 $this->_closed[$next]['p'] = $pNode;
@@ -115,10 +121,12 @@ class AStar{
         }
     }
 
+    // G -> 从起点 A 移动到指定方格的移动代价，沿着到达该方格而生成的路径
     private function _getG($point) {
         return abs($this->_start - $point);
     }
 
+    // H -> 从指定的方格移动到终点 B 的估算成本
     private function _getH($point) {
         return abs($this->_end - $point);
     }

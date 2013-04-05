@@ -6,8 +6,8 @@ require 'AStar.php';
 $maze = new Maze();
 $aStar = new AStar();
 
-$w = 6;     // 迷宫宽
-$h = 6;     // 迷宫高
+$w = $_POST['w'] ? $_POST['w'] : 6;     // 迷宫宽
+$h = $_POST['h'] ? $_POST['h'] : 6;     // 迷宫高
 
 $maze->set($w, $h);
 $maze->create();
@@ -15,7 +15,7 @@ $grids = $maze->get();
 
 // 寻路
 $aStar->set($w, $h, $grids);
-$path = $aStar->search(0, 35);       // 从零开始找到35
+$path = $aStar->search(0, $w * $h - 1);       // 从零开始找到35
 
 // 画迷宫方法
 function div($x, $y, $v){
@@ -53,7 +53,14 @@ function div($x, $y, $v){
 <link href="css/mg.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div style="width: 212px; height: 212px;margin:20px auto;" class="mg">
+<div style="width:612px;height:40px;margin:20px auto;" class="mg">
+<form action="" method="post">
+<input type="text" name="w" size="6" value="<?php echo $w?>" /> * 
+<input type="text" name="h" size="6" value="<?php echo $h?>" />
+<input type="submit" name="submit" value="生成" />
+</form>
+</div>
+<div style="width: 612px; height: 212px;margin:20px auto;" class="mg">
 <?php
 for($y = 0; $y < $h; $y++ ){
     for($x=0; $x < $w; $x++ ){
