@@ -60,6 +60,7 @@ class Maze{
     | 生成迷宫的系列函数
     |---------------------------------------------------------------
     */
+    // 从开始遍历
     private function _walk($startPos) {
         $this->_walkHistory = array();
         $this->_walkHistory2 = array();
@@ -71,10 +72,12 @@ class Maze{
         return $this;
     }
 
+    // 生成指定点的四个方向
     private function _getTargetSteps($curPos) {
         $p = 0;
         $a = array();
 
+        // 上
         $p = $curPos - $this->_w;
 
         if ($p > 0 && $this->_grids[$p] === 0 && ! $this->_isRepeating($p)) {
@@ -83,6 +86,7 @@ class Maze{
             array_push($a, -1);
         }
 
+        // 右
         $p = $curPos + 1;
         if ($p % $this->_w != 0 && $this->_grids[$p] === 0 && ! $this->_isRepeating($p)) {
             array_push($a, $p);
@@ -90,6 +94,7 @@ class Maze{
             array_push($a, -1);
         }
 
+        // 下
         $p = $curPos + $this->_w;
         if ($p < count($this->_grids) && $this->_grids[$p] === 0 && ! $this->_isRepeating($p)) {
             array_push($a, $p);
@@ -97,6 +102,7 @@ class Maze{
             array_push($a, -1);
         }
 
+        // 左
         $p = $curPos - 1;
         if (($curPos % $this->_w) != 0 && $this->_grids[$p] === 0 && ! $this->_isRepeating($p)) {
             array_push($a, $p);
@@ -107,6 +113,7 @@ class Maze{
         return $a;
     }
 
+    // 四个方向都遍历过
     private function _noStep() {
         $l = count($this->_targetSteps);
         for ($i = 0; $i < $l; $i ++) {
@@ -115,9 +122,12 @@ class Maze{
         return true;
     }
 
+    // 生成格子
     private function _step($curPos) {
+        // 取当前格子的四个方向
 		$this->_targetSteps = $this->_getTargetSteps($curPos);
 		if ( $this->_noStep() ) {
+            // 回退
             if ( count($this->_walkHistory) > 0 ) {
                 $tmp = array_pop($this->_walkHistory);
             } else {
@@ -127,17 +137,18 @@ class Maze{
 			return $this->_step($tmp);
 		}
 
-		$r = rand(0, 3);
+        // 随机一个方向走
+        do{
+            $r = rand(0, 3);
+        }while($this->_targetSteps[$r] == -1 );
 
-		while ( $this->_targetSteps[$r] == -1) {
-			$r = rand(0, 3);
-		}
 		$nextPos = $this->_targetSteps[$r];
 
 		$isCross = false;
 		if ( $this->_grids[$nextPos] != 0)
 			$isCross = true;
 
+        // 开放路线
 		if ($r == 0) {
 			$this->_grids[$curPos] ^= 1;
 			$this->_grids[$nextPos] ^= 4;
@@ -156,6 +167,7 @@ class Maze{
 		return $isCross ? false : $nextPos;
     }
 
+    // 是否已经访问过
     private function _isRepeating($p) {
         $l = count($this->_walkHistory);
 		for ($i = 0; $i < $l; $i ++) {
@@ -168,6 +180,7 @@ class Maze{
 		return false;
     }
 
+    // 取一个没有访问的点
     private function _getNext0() {
         $l = count($this->_grids);
 
@@ -177,6 +190,7 @@ class Maze{
 		return -1;
     }
 
+    // 初始化，所有的点都设置成0
     private function _init() {
 		$this->_grids = array();
 		for ($y = 0; $y < $this->_h; $y ++) {
