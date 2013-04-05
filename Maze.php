@@ -125,59 +125,59 @@ class Maze{
     // 生成格子
     private function _step($curPos) {
         // 取当前格子的四个方向
-		$this->_targetSteps = $this->_getTargetSteps($curPos);
-		if ( $this->_noStep() ) {
+        $this->_targetSteps = $this->_getTargetSteps($curPos);
+        if ( $this->_noStep() ) {
             // 回退
             if ( count($this->_walkHistory) > 0 ) {
                 $tmp = array_pop($this->_walkHistory);
             } else {
-			    return false;
+                return false;
             }
-			array_push($this->_walkHistory2, $tmp);
-			return $this->_step($tmp);
-		}
+            array_push($this->_walkHistory2, $tmp);
+            return $this->_step($tmp);
+        }
 
         // 随机一个方向走
         do{
             $r = rand(0, 3);
         }while($this->_targetSteps[$r] == -1 );
 
-		$nextPos = $this->_targetSteps[$r];
+        $nextPos = $this->_targetSteps[$r];
 
-		$isCross = false;
-		if ( $this->_grids[$nextPos] != 0)
-			$isCross = true;
+        $isCross = false;
+        if ( $this->_grids[$nextPos] != 0)
+            $isCross = true;
 
         // 开放路线
-		if ($r == 0) {
-			$this->_grids[$curPos] ^= 1;
-			$this->_grids[$nextPos] ^= 4;
-		} elseif ($r == 1) {
-			$this->_grids[$curPos] ^= 2;
-			$this->_grids[$nextPos] ^= 8;
-		} elseif ($r == 2) {
-			$this->_grids[$curPos] ^= 4;
-			$this->_grids[$nextPos] ^= 1;
-		} elseif ($r == 3) {
-			$this->_grids[$curPos] ^= 8;
-			$this->_grids[$nextPos] ^= 2;
-		}
-		array_push($this->_walkHistory, $curPos);
+        if ($r == 0) {
+            $this->_grids[$curPos] ^= 1;
+            $this->_grids[$nextPos] ^= 4;
+        } elseif ($r == 1) {
+            $this->_grids[$curPos] ^= 2;
+            $this->_grids[$nextPos] ^= 8;
+        } elseif ($r == 2) {
+            $this->_grids[$curPos] ^= 4;
+            $this->_grids[$nextPos] ^= 1;
+        } elseif ($r == 3) {
+            $this->_grids[$curPos] ^= 8;
+            $this->_grids[$nextPos] ^= 2;
+        }
+        array_push($this->_walkHistory, $curPos);
 
-		return $isCross ? false : $nextPos;
+        return $isCross ? false : $nextPos;
     }
 
     // 是否已经访问过
     private function _isRepeating($p) {
         $l = count($this->_walkHistory);
-		for ($i = 0; $i < $l; $i ++) {
-			if ($this->_walkHistory[$i] == $p) return true;
-		}
+        for ($i = 0; $i < $l; $i ++) {
+            if ($this->_walkHistory[$i] == $p) return true;
+        }
         $l = count($this->_walkHistory2);
-		for ($i = 0; $i < $l; $i ++) {
-			if ($this->_walkHistory2[$i] == $p) return true;
-		}
-		return false;
+        for ($i = 0; $i < $l; $i ++) {
+            if ($this->_walkHistory2[$i] == $p) return true;
+        }
+        return false;
     }
 
     // 取一个没有访问的点
@@ -185,19 +185,19 @@ class Maze{
         $l = count($this->_grids);
 
         for ($i = 0; $i <= $l; $i++ ) {
-			if ( $this->_grids[$i] == 0) return $i;
-		}
-		return -1;
+            if ( $this->_grids[$i] == 0) return $i;
+        }
+        return -1;
     }
 
     // 初始化，所有的点都设置成0
     private function _init() {
-		$this->_grids = array();
-		for ($y = 0; $y < $this->_h; $y ++) {
-			for ($x = 0; $x < $this->_w; $x ++) {
-				array_push($this->_grids, 0);
-			}
+        $this->_grids = array();
+        for ($y = 0; $y < $this->_h; $y ++) {
+            for ($x = 0; $x < $this->_w; $x ++) {
+                array_push($this->_grids, 0);
+            }
         }
-		return $this;
+        return $this;
     }
 }
