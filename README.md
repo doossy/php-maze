@@ -31,4 +31,4 @@ http://localhost/php-maze/index.php
 
 
 ---
-@项目迁移到doossy组织
+@项目移交到doossy组织
