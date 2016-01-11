@@ -30,5 +30,5 @@ http://localhost/php-maze/index.php
 * [[oldj's blog] JavaScript写的网页迷宫游戏](http://oldj.net/article/javascript-maze/)
 
 
----
+----
 @项目移交到doossy组织
