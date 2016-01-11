@@ -28,3 +28,7 @@ http://localhost/php-maze/index.php
 
 ## 迷宫生成算法
 * [[oldj's blog] JavaScript写的网页迷宫游戏](http://oldj.net/article/javascript-maze/)
+
+
+---
+@项目迁移到doossy组织
