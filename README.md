@@ -1,5 +1,8 @@
 php版本的迷宫生成算法及A*寻路算法
 =============
+
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://gabrielrcouto.mit-license.org/)
+
 # 迷宫生成算法
 采用树的深度遍历算法生活
 # A*寻路算法
