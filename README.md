@@ -4,7 +4,7 @@ php版本的迷宫生成算法及A*寻路算法
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://doossy.mit-license.org/)
 
 # 迷宫生成算法
-采用树的深度遍历算法生活
+采用树的深度遍历算法生法
 # A*寻路算法
 这个就不介绍了，大家懂的
 # 文件说明
